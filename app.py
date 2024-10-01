@@ -266,8 +266,7 @@ def analyze_poem_structure(content):
 
 
 def count_syllables(line):
-    # This is a very simplified syllable counter. For a more accurate count,
-    # you might want to use a library like nltk or create a more sophisticated algorithm.
+    # This is a very simplified syllable counter.
     return len(line.split())
 
 
