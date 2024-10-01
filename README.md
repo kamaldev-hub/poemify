@@ -67,13 +67,8 @@ Create a .env file in the project root and add the following:
 SECRET_KEY=your_secret_key
 GROQ_API_KEY=your_groq_api_key
 ```
-### 5. Initialize the Database
-```bash
-flask db init
-flask db migrate
-flask db upgrade
-```
-### 6. Run the Server
+
+### 5. Run the Server
 ```bash
 Run the app.py file
 ```
