@@ -12,9 +12,34 @@
 
 ## 🚀 Technologies Used
 
-- **Backend**: Python 3.8+, Flask, SQLAlchemy, Flask-Login
-- **AI Integration**: Groq API for text generation, FAISS for similarity search
-- **Document Processing**: PyPDF2 for PDF text extraction
+- **Backend**:
+  - Python 3.8+
+  - Flask: Web framework for building the application
+  - SQLAlchemy: ORM (Object-Relational Mapping) for database interactions
+  - Flask-Login: For handling user sessions and authentication
+
+  
+- **AI Integration**: 
+  - Groq API: For AI-powered text generation and style detection
+  - LangChain: For building applications with large language models (LLMs)
+  - FAISS (Facebook AI Similarity Search): For efficient similarity search and clustering of dense vectors
+
+
+- **Document Processing**:
+  - PyPDF2: For extracting text from PDF files
+  - langchain.text_splitter.RecursiveCharacterTextSplitter: For splitting text into chunks
+  - HuggingFace Transformers: For text embeddings ("all-MiniLM-L6-v2" model)
+
+
+- **Frontend**:
+  - HTML/CSS: For structuring and styling web pages
+  - JavaScript: For client-side interactivity (if used)
+  - Jinja2: Flask's template engine for rendering dynamic content
+
+
+- **Database**:
+  - SQLite: Lightweight database for development
+
 
 ## 🛠️ Setup Instructions
 
