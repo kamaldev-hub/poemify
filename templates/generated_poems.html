@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-white shadow-lg rounded-lg overflow-hidden">
+    <div class="px-6 py-8 border-b border-gray-200">
+        <h3 class="text-3xl font-bold text-gray-900 mb-2">
+            Your Generated Poems
+        </h3>
+        <p class="text-lg text-gray-600">
+            Explore your newly created poetic masterpieces.
+        </p>
+    </div>
+    <div class="divide-y divide-gray-200">
+        {% for poem in poems %}
+        <div class="poem p-6 hover:bg-purple-50 transition duration-300">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h4 class="poem-title text-xl font-semibold text-purple-600 mb-1">Prompt: {{ poem.prompt }}</h4>
+                    <p class="poem-style text-sm text-gray-500">Style: {{ poem.style }}</p>
+                </div>
+                <div class="text-sm text-gray-400">
+                    Created on: {{ poem.created_at.strftime('%Y-%m-%d %H:%M') }}
+                </div>
+            </div>
+            <div class="poem-content bg-gray-50 p-4 rounded-lg text-gray-800 font-serif italic">
+                {{ poem.generated_poem }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="mt-8 flex justify-center">
+    <a href="{{ url_for('dashboard') }}" class="btn flex items-center">
+        <i data-feather="arrow-left" class="mr-2"></i>
+        Back to Dashboard
+    </a>
+</div>
+{% endblock %}

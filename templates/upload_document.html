@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+    <div class="p-8">
+        <div class="uppercase tracking-wide text-sm text-purple-600 font-semibold mb-1">Create Your Unique Style</div>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Upload a Document</h2>
+        <p class="text-gray-600 mb-6">Upload a document to create a new custom style for generating poems. This document will be used as a reference for the AI to emulate the style in future poem generations.</p>
+        <form method="POST" enctype="multipart/form-data" class="space-y-6">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.file.label(class="form-label block text-gray-700 text-sm font-bold mb-2") }}
+                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md relative">
+                    <div class="space-y-1 text-center">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <div class="flex text-sm text-gray-600">
+                            <label for="{{ form.file.id }}" class="relative cursor-pointer bg-white rounded-md font-medium text-purple-600 hover:text-purple-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-purple-500">
+                                <span>Upload a file</span>
+                                {{ form.file(class="sr-only", onchange="updateFileDisplay(this)") }}
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                        </div>
+                        <p class="text-xs text-gray-500">
+                            TXT, JSON, or PDF up to 10MB
+                        </p>
+                    </div>
+                </div>
+                <div id="file-display" class="mt-2 text-sm text-gray-600 hidden"></div>
+            </div>
+            <div class="flex items-center justify-between">
+                {{ form.submit(class="btn flex items-center justify-center w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-8 text-center">
+    <p class="text-gray-600">Ready to generate a poem? <a href="{{ url_for('generate_poem_route') }}" class="text-purple-600 hover:underline">Click here</a> to use our AI generator!</p>
+</div>
+
+<script>
+function updateFileDisplay(input) {
+    var fileDisplay = document.getElementById('file-display');
+    if (input.files && input.files[0]) {
+        var fileName = input.files[0].name;
+        fileDisplay.textContent = 'Selected file: ' + fileName;
+        fileDisplay.classList.remove('hidden');
+    } else {
+        fileDisplay.textContent = '';
+        fileDisplay.classList.add('hidden');
+    }
+}
+</script>
+{% endblock %}
