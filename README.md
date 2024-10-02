@@ -33,7 +33,7 @@
 
 - **Frontend**:
   - HTML/CSS: For structuring and styling web pages
-  - JavaScript: For client-side interactivity (if used)
+  - JavaScript: For client-side interactivity
   - Jinja2: Flask's template engine for rendering dynamic content
 
 
